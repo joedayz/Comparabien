@@ -29,6 +29,7 @@ export class DetalleDepositoComponent implements OnInit {
   }
 
   initForm(){
+    console.log('llega');
     this.productoService.obtenerPorId(this.id).subscribe(data => {
       this.producto = data;
     });

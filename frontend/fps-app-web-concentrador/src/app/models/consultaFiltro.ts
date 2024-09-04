@@ -23,6 +23,7 @@ export class ConsultaFiltro {
             this.departamentoId = idDepartamento;
             this.tipoInstitucionId = idTipoInstitucion;
     }
+    
     public setFiltroPrestamo(codigo: number, idTipoMoneda: string, montoMaximoAceptable: string,
                              plazoMaximoMes: string, idDepartamento: string, idTipoInstitucion: string,
                              ingresoPermitido: string) {

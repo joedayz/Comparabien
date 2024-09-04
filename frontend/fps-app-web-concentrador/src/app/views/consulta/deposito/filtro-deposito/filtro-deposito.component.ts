@@ -87,7 +87,6 @@ export class FiltroDepositoComponent implements OnInit {
     const filtro = new ConsultaFiltro();
     filtro.setFiltroDeposito(CODIGO_DEPOSITO, this.form.value.tipoMoneda, this.form.value.valorDeposito,
     this.form.value.plazo, this.form.value.departamento, this.form.value.banco);
-    console.log(filtro);
     this.servicioProducto.listar(filtro).subscribe(data => {
       this.servicioProducto.listaCambios.next(data);
     });

@@ -22,6 +22,6 @@ export class ProductoServicioService {
   }
 
   obtenerPorId(id: number) {
-    return this.http.get<any>(`${this.endpointBase}/${id}`);
+    return this.http.get<any>(`${this.endpointBase}/detalle/${id}`);
   }
 }

@@ -8,11 +8,11 @@
                 <div class="p-grid p-justify-center">
                     <div class="p-col-10 p-sm-6 p-md-6 p-lg-6">
                         <p class="textos">Nombres: </p>
-                        <input type="text" pInputText class="entrada" formControlName="nombre" />
+                        <input [class.is-invalid]="nombreNoValido" type="text" pInputText class="entrada" formControlName="nombre" />
                     </div>
                     <div class="p-col-10 p-sm-6 p-md-6 p-lg-6">
                         <p class="textos">Apellidos: </p>
-                        <input type="text" pInputText class="entrada" formControlName="apellido" />
+                        <input [class.is-invalid]="apellidoNoValido" type="text" pInputText class="entrada" formControlName="apellido" />
                     </div>
                 </div>
                 <div class="p-grid p-justify-center">
@@ -22,17 +22,17 @@
                     </div>
                     <div class="p-col-10 p-sm-6 p-md-6 p-lg-6">
                         <p class="textos">Numero Documento: </p>
-                        <input type="text" pInputText class="entrada" formControlName="numeroDocumento" />
+                        <input [class.is-invalid]="numeroDocumentoNoValido" type="text" pInputText class="entrada" formControlName="numeroDocumento" />
                     </div>
                 </div>
                 <div class="p-grid p-justify-center">
                     <div class="p-col-10 p-sm-6 p-md-6 p-lg-6">
                         <p class="textos">Email: </p>
-                        <input type="text" pInputText class="entrada" formControlName="email" />
+                        <input [class.is-invalid]="emailNoValido" type="text" pInputText class="entrada" formControlName="email" />
                     </div>
                     <div class="p-col-10 p-sm-6 p-md-6 p-lg-6">
                         <p class="textos">Celular: </p>
-                        <input type="text" pInputText class="entrada" formControlName="celular" />
+                        <input [class.is-invalid]="celularNoValido" type="text" pInputText class="entrada" formControlName="celular" />
                     </div>
                 </div>
                 <div class="p-grid p-justify-center">

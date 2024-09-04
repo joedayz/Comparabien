@@ -85,7 +85,7 @@
 
             <ng-template pTemplate="body" let-datos>
                 <tr>
-                    <td>{{datos.producto}}</td>
+                    <td>{{datos.consultaEntidadProductoId}}</td>
                     <td>{{datos.nombre}}</td>
                     <td> <img [src]="datos.pathImagen" height="28" class="p-shadow-4" alt="La imagen no existe" /> </td>
                     <td>{{datos.moneda}}</td>
@@ -95,7 +95,8 @@
                     <td>
                         <button pButton type="button" pTooltip="Ver detalle" tooltipPosition="top" icon="fa fa-info"
                             class="p-button-raised p-button-success p-button-rounded p-button-sm boton_detalle"
-                            [routerLink]="['detalle-deposito', datos.idConsultaEntidadProducto]"></button> &nbsp;
+                            [routerLink]="['detalle-deposito', datos.consultaEntidadProductoId]"></button> &nbsp;
+                        
                         <button pButton type="button" pTooltip="Solicitar" tooltipPosition="top" icon="fa fa-arrow-circle-right"
                             class="p-button-raised p-button-warning p-button-rounded p-button-sm boton_detalle"
                             routerLink="/deposito/solicitud"></button>

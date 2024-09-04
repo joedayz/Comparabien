@@ -25,5 +25,12 @@ namespace ConcentradorBackend.Controllers
         {
             return _consultaProductoService.consulta(request, page);
         }
+        
+        [HttpGet]
+        [Route("detalle/{id}")]
+        public ConsultaEntidadProducto GetProductoFinanciero(int id)
+        {
+            return _consultaProductoService.getProductoFinanciero(id);
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace ConcentradorBackend
             services.AddTransient<IOpcionService, OpcionDataAccessLayer>();
             services.AddTransient<IDepartamentoService, DepartamentoDataAccessLayer>();
             services.AddTransient<IConsultaProductoService, ConsultaProductoDataAccessLayer>();
+            services.AddTransient<IProspectoService, ProspectoDataAccessLayer>();
             
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -43,7 +44,7 @@ namespace ConcentradorBackend
                     builder =>
                     {
                         builder.WithOrigins("http://localhost:4200"
-
+                        //builder.WithOrigins("https://192.168.0.109:4200"
                             )
                             .AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
                     });

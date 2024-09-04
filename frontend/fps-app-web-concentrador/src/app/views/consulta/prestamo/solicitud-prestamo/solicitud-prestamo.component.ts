@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Prospecto } from '../../../../models/prospecto';
 import { ProspectoService } from '../../../../services/prospecto.service';
 import Swal from 'sweetalert2';
+import { DepartamentoService } from 'src/app/services/departamento.service';
 
 @Component({
   selector: 'app-solicitud-prestamo',
@@ -17,6 +18,7 @@ export class SolicitudPrestamoComponent implements OnInit {
   id: number;
 
   constructor(private readonly prospectoService: ProspectoService,
+              private readonly departamentoService: DepartamentoService,
               private readonly fb: FormBuilder,
               private readonly router: Router) { }
 
@@ -31,18 +33,46 @@ export class SolicitudPrestamoComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      nombre: [''],
-      apellido: [''],
+      nombre: ['',  Validators.required],
+      apellido: ['',  Validators.required],
       tipoDocumentoId: [],
-      numeroDocumento: [''],
-      email: [''],
-      celular: [''],
+      numeroDocumento: ['',  Validators.required],
+      email: ['',  Validators.required],
+      celular: ['',  Validators.required],
       departamentoId: []
     });
   }
 
+  get nombreNoValido(){
+    return this.validar('nombre');
+  }
+
+  get apellidoNoValido(){
+    return this.validar('apellido');
+  }
+
+  get numeroDocumentoNoValido(){
+    return this.validar('numeroDocumento');
+  }
+
+  get emailNoValido(){
+    return this.validar('email');
+  }
+
+  get celularNoValido(){
+    return this.validar('celular');
+  }
+
+  private validar(nombreCampo: string){
+    return this.form.get(nombreCampo).invalid && this.form.get(nombreCampo).touched;
+  }
 
   guardar() {
+    if (this.form.invalid){
+      return Object.values(this.form.controls).forEach(control => {
+        control.markAsTouched();
+      });
+    }
     const data = new Prospecto();
     data.nombres = this.form.value.nombre;
     data.apellidos = this.form.value.apellido;
@@ -73,26 +103,11 @@ export class SolicitudPrestamoComponent implements OnInit {
   }
 
   loadDepartamento(){
-    this.departamento = [
-      {label: 'Seleccione..', value: null},
-      {label: 'Amazonas', value: 1},
-      {label: 'Áncash', value: 2 },
-      {label: 'Apurímac', value: 3},
-      {label: 'Arequipa', value: 4},
-      {label: 'Ayacucho', value: 5},
-      {label: 'Cajamarca', value: 6},
-      {label: 'Cusco', value: 7},
-      {label: 'Huancavelica', value: 8},
-      {label: 'Huánuco', value: 9},
-      {label: 'Ica', value: 10},
-      {label: 'Junín', value: 11},
-      {label: 'La Libertad', value: 12},
-      {label: 'Lambayeque', value: 13},
-      {label: 'Lima', value: 14},
-      {label: 'Loreto', value: 15},
-      {label: 'Pasco', value: 16},
-      {label: 'Piura', value: 17},
-      {label: 'Tacna', value: 18}
-  ];
+    this.departamento = [{label: "Seleccione..", value: null}];
+    this.departamentoService.listar().subscribe((data: SelectItem[])=> {
+      data.forEach((element: SelectItem) => {
+        this.departamento.push(element);
+      });
+    });
   }
 }

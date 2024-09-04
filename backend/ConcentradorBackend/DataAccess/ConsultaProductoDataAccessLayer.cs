@@ -79,5 +79,19 @@ namespace ConcentradorBackend.DataAccess
                 throw;
             }
         }
+
+        
+        public ConsultaEntidadProducto getProductoFinanciero(int id)
+        {
+            try
+            {
+                return (ConsultaEntidadProducto) _dbContext.ConsultaEntidadProducto.FirstOrDefault(s => s.ConsultaEntidadProductoId == id);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
     }
 }

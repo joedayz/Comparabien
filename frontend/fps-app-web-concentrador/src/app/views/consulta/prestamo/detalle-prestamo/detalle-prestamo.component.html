@@ -18,8 +18,8 @@
                 <p class="textoDato" style="padding-bottom: 4px;">{{producto.nombre}}</p>
                 <p class="textoDato" style="padding-bottom: 4px;">{{producto.moneda}}</p>
                 <p class="textoDato" style="padding-bottom: 4px;">{{producto.porcentajeTea}}</p>
-                <p class="textoDato" style="padding-bottom: 4px;">{{producto.montoMinimoDeposito}}</p>
-                <p class="textoDato" style="padding-bottom: 4px;" *ngIf="producto.montoMinimoDeposito == null">{{producto.montoMinimoPrestamo}}</p>
+                <p class="textoDato" style="padding-bottom: 4px;">{{producto.montoMinimoPrestamo}}</p>
+                <p class="textoDato" style="padding-bottom: 4px;" *ngIf="producto.montoMinimoPrestamo == null">{{producto.montoMinimoDeposito}}</p>
             </div>
             <div class="p-sm-12 p-md-3 p-lg-3">
                 <img [src]="producto.pathImagen" height="50" alt="" />
@@ -70,8 +70,8 @@
                     <p>{{producto.ingresoPermitido}} {{producto.moneda}}</p>
                 </div>
                 <div class="Cell">
-                    <p>{{producto.montoMaximoDeposito}}</p>
-                    <p *ngIf="producto.montoMaximoDeposito == null">{{producto.montoMaximoPrestamo}} {{producto.moneda}}</p>
+                    <p>{{producto.montoMaximoPrestamo}}</p>
+                    <p *ngIf="producto.montoMaximoPrestamo == null">{{producto.montoMaximoDeposito}} {{producto.moneda}}</p>
                 </div>
                 <div class="Cell">
                     <p *ngIf="producto.plazoMinimoDia == null || producto.plazoMaximoDia == null">{{producto.plazoMinimoMes}} meses a {{producto.plazoMaximoMes}} meses</p>

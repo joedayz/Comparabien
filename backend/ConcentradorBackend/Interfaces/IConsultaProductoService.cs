@@ -8,5 +8,7 @@ namespace ConcentradorBackend.Interfaces
     public interface IConsultaProductoService
     {
         List<ConsultaEntidadProducto> consulta(ConsultaProductoFinancieroRequest request, int pagina);
+
+        ConsultaEntidadProducto getProductoFinanciero(int id);
     }
 }
